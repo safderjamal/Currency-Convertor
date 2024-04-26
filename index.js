@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
-console.log("\n$$$$$$$$$$ CURRENCY CONVERTOR $$$$$$$$$$\n");
+import chalk from "chalk";
+console.log(chalk.bgGreenBright.black("\n$$$$$$$$$$ CURRENCY CONVERTOR $$$$$$$$$$\n"));
 //PKR currency is treated here as Based Currecy
 const currency = {
     PKR: 1,
@@ -38,4 +39,6 @@ let fromAmount = currency[userInput.fromCurrency];
 let toAmount = currency[userInput.toCurrency];
 let Amount = userInput.amount;
 let convertedCurrency = (Amount / fromAmount) * toAmount;
-console.log("\nYour Converted Amount is:", `${convertedCurrency.toFixed(2)} ${userInput.toCurrency}`);
+console.log(chalk.yellowBright.italic("\nYour Converted Amount is: ") +
+    chalk.greenBright.bold(`${convertedCurrency.toFixed(2)}`) +
+    chalk.greenBright.bold(` ${userInput.toCurrency}`));

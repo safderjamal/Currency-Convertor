@@ -1,9 +1,10 @@
 #! /usr/bin/env node
 
 import inquirer from "inquirer";
+import chalk from "chalk";
 import { from } from "rxjs";
 
-console.log("\n$$$$$$$$$$ CURRENCY CONVERTOR $$$$$$$$$$\n");
+console.log(chalk.bgGreenBright.black("\n$$$$$$$$$$ CURRENCY CONVERTOR $$$$$$$$$$\n"));
 
 //PKR currency is treated here as Based Currecy
 const currency: any = {
@@ -34,7 +35,7 @@ let userInput = await inquirer.prompt([
   },
   {
     message: "ENTER YOUR AMOUNT: ",
-    type: "number",
+    type:"number",
     name: "amount",
   },
 ]);
@@ -44,9 +45,11 @@ let fromAmount = currency[userInput.fromCurrency];
 let toAmount = currency[userInput.toCurrency];
 let Amount = userInput.amount;
 
+//Formula to calculate the converted currency
 let convertedCurrency = (Amount / fromAmount) * toAmount;
 
 console.log(
-  "\nYour Converted Amount is:",
-  `${convertedCurrency.toFixed(2)} ${userInput.toCurrency}`
+  chalk.yellowBright.bold("\nYour Converted Amount is: ") +
+  chalk.greenBright.bold(`${convertedCurrency.toFixed(2)}`) +
+  chalk.greenBright.bold(` ${userInput.toCurrency}`)
 );
