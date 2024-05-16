@@ -2,11 +2,10 @@
 
 import inquirer from "inquirer";
 import chalk from "chalk";
-import { from } from "rxjs";
 
 console.log(chalk.bgGreenBright.black("\n$$$$$$$$$$ CURRENCY CONVERTOR $$$$$$$$$$\n"));
 
-//PKR currency is treated here as Based Currecy
+//PKR currency is treated here as Based Currency
 const currency: any = {
   PKR: 1, //Pakistan Rupee //BASED CURRENCY
   USD: 0.0036, //US Dollar
